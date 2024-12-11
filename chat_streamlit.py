@@ -8,6 +8,7 @@ import sys
 __import__('pysqlite3')
 import pysqlite3
 sys.modules['sqlite3'] = sys.modules["pysqlite3"]
+import chromadb
 import tempfile
 import streamlit as st
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
@@ -20,7 +21,6 @@ from langchain.chains import RetrievalQA
 from langchain_groq import ChatGroq
 from langchain_ollama import OllamaEmbeddings
 import os
-import chromadb
 from uuid import uuid4
 import  shutil
 
