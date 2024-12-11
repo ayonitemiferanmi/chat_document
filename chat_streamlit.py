@@ -21,7 +21,7 @@ import os
 import chromadb
 from uuid import uuid4
 import  shutil
-chromadb.api.client.SharedSystemClient.clear_system_cache()
+#chromadb.api.client.SharedSystemClient.clear_system_cache()
 
 # Groq_API_KEY
 os.getenv("GROQ_API_KEY")
