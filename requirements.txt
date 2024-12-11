@@ -7,3 +7,4 @@ pypdf
 pytest
 docx2txt
 langchain-community
+pysqlite3-binary
