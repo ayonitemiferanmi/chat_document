@@ -4,9 +4,9 @@ Created on Fri Oct 18 09:20:11 2024
 
 @author: Rise Networks
 """
+import sys
 __import__('pysqlite3')
 import pysqlite3
-import sys
 sys.modules['sqlite3'] = sys.modules["pysqlite3"]
 import tempfile
 import streamlit as st
