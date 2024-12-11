@@ -4,12 +4,10 @@ Created on Fri Oct 18 09:20:11 2024
 
 @author: Rise Networks
 """
-__import__('pysqlite3')
-import pysqlite3
-import sys
-sys.modules['sqlite3'] = sys.modules['pysqlite3']
+
 import tempfile
 import streamlit as st
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.document_loaders.text import TextLoader
 from langchain_community.document_loaders import Docx2txtLoader
@@ -22,12 +20,11 @@ import os
 import chromadb
 from uuid import uuid4
 import  shutil
-#chromadb.api.client.SharedSystemClient.clear_system_cache()
+chromadb.api.client.SharedSystemClient.clear_system_cache()
 
 # Groq_API_KEY
 os.getenv("GROQ_API_KEY")
-# os.environ["GROQ_API_KEY"] = "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"
-
+os.getenv("GOOGLE_API_KEY")
 
 # File Uploading
 uploaded_file = st.sidebar.file_uploader(
@@ -116,7 +113,8 @@ def app():
         chunks = split_document(document=document)
 
         # Initialize our embedding
-        embeddings =  OllamaEmbeddings(model="all-minilm")
+        os.environ["GOOGLE_API_KEY"] = "AIzaSyBSwnx3RH_HCYV0lVUJp1pyx8baRgFKGw4"
+        embeddings =  GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
         # Creating a database
         vector_db = create_db(embeddings, chunks)
@@ -134,7 +132,7 @@ def app():
             llm=llm,
             chain_type = "stuff",
             retriever = vector_db,
-            return_source_documents = True
+            return_source_documents = True,
         )
     return qa
     
