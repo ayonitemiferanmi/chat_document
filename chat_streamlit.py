@@ -6,7 +6,7 @@ Created on Fri Oct 18 09:20:11 2024
 """
 __import__('pysqlite3')
 import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+sys.modules['sqlite3'] = sys.modules['pysqlite3']
 import tempfile
 import streamlit as st
 from langchain_community.document_loaders import PyPDFLoader
