@@ -120,7 +120,8 @@ def app():
 
         # Creating a database
         vector_db = create_db(embeddings, chunks)
-
+        
+        os.environ["GROQ_API_KEY"] = "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"
         # Creating LLM using Groq-AI
         llm = ChatGroq(
             name="llama3-70b-8192",
