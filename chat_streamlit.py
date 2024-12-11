@@ -94,7 +94,7 @@ def create_db(embeddings, chunks):
         documents=chunks,
         embedding=embeddings,
         # persist_directory="./",
-        collection_name="PDF_chat"
+        #collection_name="PDF_chat"
     )
     return db.as_retriever()
     
