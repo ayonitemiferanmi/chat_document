@@ -1,7 +1,7 @@
 langchain
 langchain-groq
 langchain-ollama
-chromadb == 0.4.9
+chromadb
 langchain-chroma
 pypdf
 pytest
