@@ -6,3 +6,4 @@ langchain-chroma
 pypdf
 pytest
 docx2txt
+langchain-community
