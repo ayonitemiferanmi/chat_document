@@ -1,0 +1,8 @@
+langchain
+langchain-groq
+langchain-ollama
+chromadb
+langchain-chroma
+pypdf
+pytest
+docx2txt
