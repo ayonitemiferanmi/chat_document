@@ -93,7 +93,7 @@ def create_db(embeddings, chunks):
     db = Chroma.from_documents(
         documents=chunks,
         embedding=embeddings,
-        # persist_directory="./",
+        persist_directory="db",
         #collection_name="PDF_chat"
     )
     return db.as_retriever()
