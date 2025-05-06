@@ -115,13 +115,15 @@ def app():
         chunks = split_document(document=document)
 
         # Initialize our embedding
-        os.environ["GOOGLE_API_KEY"] = "AIzaSyBSwnx3RH_HCYV0lVUJp1pyx8baRgFKGw4"
+        # os.environ["GOOGLE_API_KEY"] = "AIzaSyBSwnx3RH_HCYV0lVUJp1pyx8baRgFKGw4"
+        os.getenv("GOOGLE_API_KEY")
         embeddings =  GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
         # Creating a database
         vector_db = create_db(embeddings, chunks)
         
-        os.environ["GROQ_API_KEY"] = "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"
+        # os.environ["GROQ_API_KEY"] = "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"
+        os.getenv("GROQ_API_KEY")
         # Creating LLM using Groq-AI
         llm = ChatGroq(
             name="llama3-70b-8192",
