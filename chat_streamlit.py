@@ -21,9 +21,12 @@ from langchain.chains import RetrievalQA
 from langchain_groq import ChatGroq
 from langchain_ollama import OllamaEmbeddings
 import os
+from dotenv import load_dotenv
 from uuid import uuid4
 import  shutil
 
+# Load environment variables
+load_dotenv()
 # Groq_API_KEY
 os.getenv("GROQ_API_KEY")
 os.getenv("GOOGLE_API_KEY")
