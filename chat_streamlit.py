@@ -123,6 +123,7 @@ def app():
 
         # Creating a database
         vector_db = create_db(embeddings, chunks)
+        container.write([embeddings])
         
         os.getenv("GROQ_API_KEY")
         # Creating LLM using Groq-AI
