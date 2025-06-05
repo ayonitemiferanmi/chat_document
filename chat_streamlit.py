@@ -5,10 +5,10 @@ Created on Fri Oct 18 09:20:11 2024
 @author: Rise Networks
 """
 import sys
-# __import__('pysqlite3')
-# import pysqlite3
-# sys.modules['sqlite3'] = sys.modules["pysqlite3"]
-# import chromadb
+__import__('pysqlite3')
+import pysqlite3
+sys.modules['sqlite3'] = sys.modules["pysqlite3"]
+import chromadb
 import tempfile
 import streamlit as st
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
@@ -118,14 +118,12 @@ def app():
         chunks = split_document(document=document)
 
         # Initialize our embedding
-        # os.environ["GOOGLE_API_KEY"] = "AIzaSyBSwnx3RH_HCYV0lVUJp1pyx8baRgFKGw4"
         os.getenv("GOOGLE_API_KEY")
         embeddings =  GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
         # Creating a database
         vector_db = create_db(embeddings, chunks)
         
-        # os.environ["GROQ_API_KEY"] = "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"
         os.getenv("GROQ_API_KEY")
         # Creating LLM using Groq-AI
         llm = ChatGroq(
