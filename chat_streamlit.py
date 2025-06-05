@@ -5,10 +5,10 @@ Created on Fri Oct 18 09:20:11 2024
 @author: Rise Networks
 """
 import sys
-__import__('pysqlite3')
-import pysqlite3
-sys.modules['sqlite3'] = sys.modules["pysqlite3"]
-import chromadb
+# __import__('pysqlite3')
+# import pysqlite3
+# sys.modules['sqlite3'] = sys.modules["pysqlite3"]
+# import chromadb
 import tempfile
 import streamlit as st
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
@@ -129,7 +129,7 @@ def app():
         os.getenv("GROQ_API_KEY")
         # Creating LLM using Groq-AI
         llm = ChatGroq(
-            name="llama3-70b-8192",
+            model="llama3-70b-8192",
             temperature=0,
             max_retries=2,
             max_tokens=1024

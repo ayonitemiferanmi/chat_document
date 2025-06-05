@@ -7,6 +7,6 @@ pypdf
 pytest
 docx2txt
 langchain-community
-pysqlite3-binary
+#pysqlite3-binary
 langchain-google-genai
 python-dotenv
